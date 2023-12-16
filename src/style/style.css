@@ -63,7 +63,7 @@ body {
   margin: 0 10px;
 }
 
-.header__nav_link {
+.header__nav_link, .header__nav_link_enabled {
   text-decoration: none;
   color: #000;
   font-size: 16px;
@@ -162,3 +162,40 @@ body {
 
 .main__section_table tr:nth-child(even) {background: #f2f2f2}
 .main__section_table tr:nth-child(odd) {background: white}
+
+.footer__loadTime p {
+  color: white;
+}
+
+.header__nav_link_enabled {
+  background: #f2f2f2;
+}
+        
+.main__section_form {
+  width: 100%;
+}
+
+.main__section_form_input {
+  width: 100%;
+  height: 400px;
+  resize: none;
+}
+
+.main__section_form_button {
+  width: 100px;
+  height: 30px;
+  background-color: #f1f1f1;
+  color: #000;
+  border-radius: 0;
+}
+
+.main__section_messages_element {
+  margin: 30px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  padding: 10px;
+}
+
+.main__section_messages_element_timestamp {
+  color: #454444;
+  text-align: right;
+}
