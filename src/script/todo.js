@@ -1,23 +1,44 @@
 const URL = "https://jsonplaceholder.typicode.com/todos";
 
-document.addEventListener("DOMContentLoaded", async () => {
+// document.addEventListener("DOMContentLoaded", async () => {
+//   renderSpinner();
+
+//   const todo = await request(URL);
+
+//   deleteSpinner();
+
+//   if (todo) {
+//     renderTableHead();
+
+//     todo.map((x) => x.completed ? x.status = "Done" : x.status = "In progress");
+
+//     for (const task of todo) {
+//       addTableRow({title: task.title, status: task.status})
+//     }
+//   } else {
+//     renderError();
+//   }
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
   renderSpinner();
 
-  const todo = await request(URL);
+  requestPromise(URL)
+      .then((todo) => {
+        deleteSpinner();
 
-  deleteSpinner();
+        renderTableHead();
 
-  if (todo) {
-    renderTableHead();
+        todo.map((x) => x.completed ? x.status = "Done" : x.status = "In progress");
 
-    todo.map((x) => x.completed ? x.status = "Done" : x.status = "In progress");
-
-    for (const task of todo) {
-      addTableRow({title: task.title, status: task.status})
-    }
-  } else {
-    renderError();
-  }
+        for (const task of todo) {
+          addTableRow({title: task.title, status: task.status})
+        }
+      })
+      .catch((error) => {
+        deleteSpinner();
+        renderError();
+      });
 });
 
 function renderSpinner() {
@@ -89,4 +110,15 @@ async function request(url) {
     console.error(`Error while making request: ${error}`);
     return undefined;
   }
+}
+
+function requestPromise(url) {
+  return fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .catch((error) => {
+        console.error(`Error while making request: ${error}`);
+        throw new Error(error);
+      });
 }
