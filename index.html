@@ -5,6 +5,8 @@
   <title>confleux</title>
   <link rel="stylesheet" href="src/style/style.css">
   <link href="https://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet">
+  <script src="src/script/loadTime.js"></script>
+  <script src="src/script/location.js"></script>
 </head>
 
 <body>
@@ -12,9 +14,10 @@
     <div class="main_container">
       <div class="header__content">
         <div class="header__logo">confleux</div>
-        <nav class="header__nav">
+        <nav class="header__nav" id="header__nav">
           <ul class="header__nav_ul">
-            <li class="header__nav_li"><a href="" class="header__nav_link">Main</a></li>
+            <li class="header__nav_li"><a href="index.html" class="header__nav_link">Main</a></li>
+            <li class="header__nav_li"><a href="form.html" class="header__nav_link">Form</a></li>
             <li class="header__nav_li"><a href="#footer__contacts" class="header__nav_link">Contacts</a></li>
             <li class="header__nav_li"><a href="#dead_inside_monke" class="header__nav_link">Something else?</a></li>
           </ul>
@@ -112,6 +115,9 @@
     <div class="footer__content">
       <div class="footer__copyright">
         <p>Copyright &copy; 2023</p>
+      </div>
+      <div class="footer__loadTime">
+        <p>loadTime: <span id="footer__loadTime_value">?</span></p>
       </div>
       <div class="footer__contacts" id="footer__contacts">
         <a href="https://t.me/confleux" class="footer__contacts_link">@confleux</a>
